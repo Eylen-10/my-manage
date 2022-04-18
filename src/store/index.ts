@@ -1,5 +1,6 @@
 import { createPinia,PiniaPluginContext } from 'pinia'
 import { useUserStore } from './user'
+import { useTabsStore } from './tabs'
 
 const __PINIAKEY__ = '__PINIAKEY__'
 
@@ -27,5 +28,5 @@ const pinia = createPinia();
 pinia.use(piniaPlugin({
     key:'my-manage'
 }))
-export { useUserStore }
+export { useUserStore,useTabsStore }
 export default pinia;

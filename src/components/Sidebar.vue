@@ -3,8 +3,9 @@
       <el-menu
         active-text-color="#ffd04b"
         background-color="#083858"
+        :default-active="tabs.curTab.path"
         class="el-menu-vertical-demo"
-        text-color="#fff"
+        text-color="#fff"   
         router
       >
       <div v-for="menu in dynamicRoute" :key="menu.name">
@@ -19,45 +20,8 @@
 <script setup>
 import Sidebaritem from './Sidebaritem.vue'
 import dynamicRoute from 'router/dynamicRoute'
-const menuList = [
-    {
-        name :'route1',
-        icon: 'bicycle',
-        children:[
-            {
-                name:'route1-1',
-            },
-            {
-                name:'route1-2'
-            }
-        ]
-    },
-    {
-        name :'route2',
-        icon: 'Box',
-        children:[
-            {
-                name:'rout2-1',
-                children:[
-                    {
-                        name:'route2-1-1'
-                    },
-                    {
-                        name:'route2-1-2'
-                    },
-                ]
-            },
-            {
-                name:'route2-2'
-            }
-        ]
-    },
-    {
-        name :'route3',
-        icon: 'Edit',
-
-    }
-]
+import { useTabsStore } from '../store'
+const tabs = useTabsStore()
 </script>
 
 <style lang="scss">
@@ -68,6 +32,8 @@ const menuList = [
     border-right: 1px solid #333;
     .el-menu{
         border:0px;
+        letter-spacing: 1px;
+        font-size: 12px;
     }
 }
 </style>

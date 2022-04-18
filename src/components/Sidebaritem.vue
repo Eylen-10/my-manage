@@ -1,6 +1,6 @@
 <template>
     <div v-if="menu.children && menu.children.length">
-        <el-sub-menu :index="menu.name">
+        <el-sub-menu :index="menu.path">
             <template #title>
                 <el-icon v-if="menu.icon">
                     <component :is="menu.icon" />
@@ -12,7 +12,7 @@
             </div>
         </el-sub-menu>     
     </div>
-    <el-menu-item v-else :index="menu.name" :router="menu.path">
+    <el-menu-item v-else :index="menu.path" :router="menu.path">
         <el-icon v-if="menu.icon">
             <component :is="menu.icon" />
         </el-icon>

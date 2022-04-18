@@ -1,29 +1,13 @@
 const dynamicRoute = [
     {
-        name:'route1',
-        path:'route1',
-        icon:'Avatar',
+        name:'图表系统',
+        path:'echart',
+        icon:'PieChart',
         children:[
             {
-                name:'route1-1',
-                path: 'route1-1',
-                children:[
-                    {
-                        name: 'route1-1-1',
-                        path: 'route1-1-1',
-                        component: () => import("../views/Page1/index.vue"),
-                    },
-                    {
-                        name: 'route1-1-2',
-                        path: 'route1-1-2',
-                        component: () => import("../views/Page1/index.vue"),
-                    }
-                ]
-            },
-            {
-                name:'route1-2',
-                path: 'route1-2',
-                component: () => import("../views/Page1/index.vue"),
+                name:'折线图',
+                path: 'e1',
+                component: () => import("../views/Echart/main-pane.vue"),
             },
         ]
     },

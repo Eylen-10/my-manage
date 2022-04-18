@@ -56,10 +56,10 @@
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage4"
+        :current-page="currentPage"
         :page-sizes="[100, 200, 300, 400]"
         :page-size="100"
-        layout="total, sizes, prev, pager, next, jumper"
+        layout="total, prev, pager, next, jumper"
         :total="400">
       </el-pagination>
     </div>
@@ -85,7 +85,7 @@ const tableRef = ref<InstanceType<typeof ElTable>>()
 const conditionForm = reactive({
     name:''
 })
-
+const currentPage = ref(1)
 
 const resetDateFilter = () => {
   tableRef.value!.clearFilter(['date'])
@@ -275,10 +275,17 @@ const tableData: User[] = [
     tag: 'Office',
   },
 ]
+function handleCurrentChange(){
+
+}
+function handleSizeChange(){
+
+}
+
 </script>
 <style lang="scss">
 .page-html{
-    width: calc(100% - 20px);
+    width: calc(100% - 35px);
     display: flex;
     flex-direction: column;
     background-color: #f7f8fa;

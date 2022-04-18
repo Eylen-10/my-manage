@@ -28,8 +28,7 @@ const routes = [
         children:dynamicRoute
     },
 ]
-
-
+console.log(dynamicRoute)
 
 
 

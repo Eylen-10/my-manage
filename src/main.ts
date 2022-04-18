@@ -8,6 +8,7 @@ import router from './router'
 import 'animate.css'
 import { ElMessage } from 'element-plus'
 import * as ElIcons from '@element-plus/icons-vue'
+import * as Echart from 'echarts'
 const app = createApp(App)
 // app.use(animate)
 app.use(pinia)
@@ -17,6 +18,7 @@ app.use(ElementPlus)
 for (const name in ElIcons){
 	app.component(name,(ElIcons as any)[name])
 }
+app.provide('$echarts',Echart)
 
 import createGuard from './permission'
 createGuard()

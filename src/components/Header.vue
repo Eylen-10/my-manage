@@ -22,52 +22,34 @@
     </div>
     <div class="tabs">
         <el-tag
-        v-for="tag in editableTabs"
-        :key="tag.path"
+        v-for="item in tabs.tabMap"
+        :key="item.path"
         class="mr10 pointer"
-        size="medium"
-        :effect="curTag.path == tag.path ? 'dark' :'light '"
-        @click="changeTag(tag)"
+        :class="{'el-tag--dark': tabs.curTab.path == item.path}"
+        @click="changeTag(item)"
+        @close="close(item)"
         closable
         >
-        {{tag.name}}
+        {{item.name}}
         </el-tag>
-
-       <!-- <el-tabs v-model="editableTabsValue" type="card" @edit="handleTabsEdit">
-            <el-tab-pane
-                    :key="item.name"
-                    v-for="(item) in editableTabs"
-                    :label="item.name"
-                    :name="item.name"
-                >
-                {{item.content}}
-            </el-tab-pane>
-        </el-tabs> -->
     </div>
 </template>
 
 <script setup>
 import avatar from 'assets/avatar.png'
-import { useUserStore } from '../store'
+import { useTabsStore, useUserStore } from '../store'
 const user = useUserStore()
+const tabs = useTabsStore()
 var breadcrumbList = reactive([])
-var curTag = reactive({})
-var editableTabs = [
-          {
-              name:'tab1',
-              path:'/1',
-          },
-          {
-              name:'tab2',
-              path:'/2',
-          }
-        ]
-changeTag(editableTabs[0])
-function changeTag(item){
-    console.log(item)
-    curTag.path = item.path;
-    curTag.name = item.name;
-}
+var curTag = reactive({
+    name:'',
+    path:''
+})
+var editableTabs = []
+
+
+
+
 const router = useRouter();
 const logout = ()=>{
     user.setUser('')
@@ -75,11 +57,28 @@ const logout = ()=>{
         path:'/login'
     })
 }
+
 watchEffect(()=>{
-    console.log(router.currentRoute.value)
     updateBreadcrumb(router.currentRoute)
+    let curRoute = {
+        path:router.currentRoute.value.fullPath,
+        name:router.currentRoute.value.name
+    }
+    tabs.addTab(curRoute);
     
 })
+function changeTag(item){
+    tabs.updateCurTab(item);
+    router.push({
+        path:item.path
+    })
+}
+function close(item){
+    tabs.delTab(item);
+    router.push({
+        path:tabs.curTab.path ? tabs.curTab.path : '/'
+    })
+}
 function updateBreadcrumb(){
     breadcrumbList.length = 0
     let tem = router.currentRoute.value.matched
