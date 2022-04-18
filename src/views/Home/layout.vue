@@ -6,9 +6,7 @@
             <!-- <div class="content"> -->
                 <router-view #default="{ Component,route }">
                         <keep-alive>
-                            <transition>
-                                <component :is="Component" :key="route.fullPath" />
-                            </transition>
+                            <component :is="Component" :key="route.fullPath" />
                         </keep-alive>
                 </router-view>
             <!-- </div> -->
@@ -38,6 +36,7 @@ if(!user.userName){
         display: flex;
         flex-direction: column;
         height: 100%;
+        background-color: #f7f8fa;
         .content{
             background-color: #fff;
             display: flex;

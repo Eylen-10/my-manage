@@ -278,7 +278,7 @@ const tableData: User[] = [
 </script>
 <style lang="scss">
 .page-html{
-    width: calc(100% - 35px);
+    width: calc(100% - 20px);
     display: flex;
     flex-direction: column;
     background-color: #f7f8fa;
@@ -288,10 +288,8 @@ const tableData: User[] = [
         padding: 10px;
         margin-bottom: 10px;
         background: white;
-        box-shadow: 0 8px 12px #ebedf0;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        font-size: 14px;   
-        // display: flex;
+        border: 1px solid #eee;
+        font-size: 14px;
     }
     .main-content{
         background: white;
