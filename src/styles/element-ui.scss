@@ -1,0 +1,254 @@
+ //覆盖一些element-ui样式
+
+ .el-breadcrumb__inner, .el-breadcrumb__inner a{
+  font-weight: 400!important;
+}
+
+
+ .el-upload {
+   input[type="file"] {
+     display: none !important;
+   }
+ }
+
+ .el-upload__input {
+   display: none;
+ }
+
+ .cell {
+   .el-tag {
+     margin-right: 0px;
+   }
+ }
+ /**
+ 标题文案过多是会跟X重合
+ **/
+ .el-dialog__title{
+   display: block;
+   margin-right: 20px;
+   font-weight: bold;
+ }
+
+ .small-padding {
+   .cell {
+     padding-left: 5px;
+     padding-right: 5px;
+   }
+ }
+
+ .fixed-width{
+  .el-button--mini{
+    padding: 7px 10px;
+    width: 60px;
+  }
+ }
+
+ .status-col {
+   .cell {
+     padding: 0 10px;
+     text-align: center;
+     .el-tag {
+       margin-right: 0px;
+     }
+   }
+ }
+
+ //暂时性解决dialog 问题 https://github.com/ElemeFE/element/issues/2461
+ .el-dialog {
+   transform: none;
+   left: 0;
+   position: relative;
+   margin: 0 auto;
+ }
+
+ //文章页textarea修改样式
+ .article-textarea {
+   textarea {
+     padding-right: 40px;
+     resize: none;
+     border: none;
+     border-radius: 0px;
+     border-bottom: 1px solid #bfcbd9;
+   }
+ }
+
+ //element ui upload
+ .upload-container {
+   .el-upload {
+     width: 100%;
+     .el-upload-dragger {
+       width: 100%;
+       height: 200px;
+     }
+   }
+ }
+
+//dropdown
+ .el-dropdown-menu{
+  a{
+    display: block
+  }
+}
+
+// el-form
+.el-form--inline .el-form-item {
+  margin-right: 0;
+}
+.el-form-item__label {
+  padding: 0 5px 0 0;
+}
+
+// el-input
+.el-input {
+  width: 120px;
+}
+
+// el-table
+.el-table {
+  overflow: auto;
+  font-size: 15px;
+  font-weight: bold;
+}
+.el-table .cell {
+  font-weight: bold;
+}
+.el-table::before {
+  z-index: inherit; // 防止表格出现多余横线
+}
+.el-table__body tr.current-row>td {
+  background: #f0f9eb !important;
+}
+
+// 单元格上下空白
+.el-table--medium td, .el-table--medium th {
+  padding: 2px 0;
+}
+
+.el-table__expanded-cell[class*=cell]{
+  padding: 15px 20px !important;
+  background: $success_1;
+  &:hover{
+    background: $success_1 !important;
+  }
+}
+
+/**
+  表格线条颜色覆盖
+**/
+.el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed{
+  border-right: 1px solid $tableBorder;
+}
+.el-table td, .el-table th.is-leaf{
+  border-bottom: 1px solid $tableBorder;
+}
+.el-table--border, .el-table--group{
+  border-left: 1px solid $tableBorder;
+}
+.el-table--border::after, .el-table--group::after, .el-table::before{
+  background-color: $tableBorder;
+}
+.el-table__fixed-right::before, .el-table__fixed::before{
+  background-color: $tableBorder;
+}
+.el-table__fixed, .el-table__fixed-right{
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.el-table--border, .el-table--group{
+  border-top-color: $tableBorder;
+}
+
+//type=expand 表头居中
+.el-table{
+  th.el-table__expand-column .cell{
+    text-align: left;
+  }
+}
+
+//百叶线条
+
+.el-collapse{
+  border-top: 1px solid $tableBorder !important;
+  border-bottom: 1px solid $tableBorder !important;
+  .el-collapse-item{
+    border-left: 1px solid $tableBorder !important;
+    border-right: 1px solid $tableBorder !important;
+  }
+  .el-collapse-item__header{
+    border-bottom:1px solid $tableBorder !important;
+  }
+  .el-collapse-item__wrap{
+    border-bottom:1px solid $tableBorder !important;
+  }
+  .el-collapse-item__header.is-active{
+    border-bottom-color: transparent !important;
+  }
+}
+
+
+
+
+//el-tree 选择高亮
+
+.el-tree--highlight-current
+  .el-tree-node.is-current
+  > .el-tree-node__content {
+  background-color:$primary;
+  color: #fff;
+  .el-tree-node__expand-icon {
+    color: #fff;
+  }
+  .el-tree-node__expand-icon.is-leaf {
+    color: transparent;
+  }
+}
+
+//所以dialog里面的label字体颜色加粗(long)
+.el-form  .el-form-item__label{
+  font-weight: bold;
+}
+
+/**分页组件字体加粗**/
+.pagination-popper-class{
+  font-weight: bold;
+}
+.el-pagination{
+  float: right;
+  .el-pagination__total,
+  .el-pager li,
+  .el-pagination__jump,
+  .el-select .el-input__inner{
+    font-weight: bold;
+  }
+}
+
+/*走马灯下部按钮样式覆盖*/
+body{
+  .el-carousel__button{
+    width: 20px;
+    height: 3px;
+  }
+  .el-carousel__indicators--outside button{
+    background-color: #666 ;
+  }
+}
+
+
+.el-select-dropdown__empty{
+  padding-right: 5px;
+  padding-left: 5px;
+}
+// .el-button--success,.el-button--success:hover,.el-button--success:active{
+//   background-color:$success;
+//   border-color:$success;
+// }
+.el-button--primary{
+  background-color:$primary;
+  border-color:$primary;
+}
+.el-button--danger{
+  background-color:$danger;
+  border-color:$danger;
+}
+.el-button--text{
+  color: $primary;
+}
