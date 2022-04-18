@@ -18,7 +18,7 @@ import linechart from './linechart.vue'
   .chart{
     width: 20vw;
     height: 15vw;
-    min-height: 150px;
+    min-height: 300px;
     min-width: 400px;
     padding:20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

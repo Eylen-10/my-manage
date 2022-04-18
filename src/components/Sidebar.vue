@@ -32,8 +32,11 @@ const tabs = useTabsStore()
     border-right: 1px solid #333;
     .el-menu{
         border:0px;
-        letter-spacing: 1px;
-        font-size: 12px;
+        .el-sub-menu__title,.el-menu-item{
+          font-size: 13px;
+          letter-spacing: 1px;
+
+        }
     }
 }
 </style>
