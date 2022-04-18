@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
+    "animate.css": "^4.1.1",
     "element-plus": "^2.1.9",
     "path": "^0.12.7",
     "pinia": "^2.0.13",

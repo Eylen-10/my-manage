@@ -3,9 +3,15 @@
         <Sidebar></Sidebar>
         <div class="main-container flex1 ">
             <Header></Header>
-            <div class="content flex1">
-                <router-view></router-view>
-            </div>
+            <!-- <div class="content"> -->
+                <router-view #default="{ Component,route }">
+                        <keep-alive>
+                            <transition>
+                                <component :is="Component" :key="route.fullPath" />
+                            </transition>
+                        </keep-alive>
+                </router-view>
+            <!-- </div> -->
         </div>
     </div>
 </template>

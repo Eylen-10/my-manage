@@ -13,8 +13,8 @@
         
   
     </div>
-    <div class="main-content flex1">
-        <el-table ref="tableRef" row-key="date" :data="tableData" height="700" style="width: 100%" header-row-class-name="table-header"	>
+    <div class="main-content flex1 flex-c">
+        <el-table ref="tableRef" row-key="date" :data="tableData" height="100%" style="width: 100%" header-row-class-name="table-header"	>
         <el-table-column
         prop="date"
         label="Date"
@@ -52,6 +52,18 @@
         </template>
         </el-table-column>
     </el-table>
+    <div class="p10">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400">
+      </el-pagination>
+    </div>
+     
     </div>
 </div>
   
@@ -301,10 +313,9 @@ const tableData: User[] = [
         }
     }
     .el-table__body-wrapper{
-        .tbody{
-            // border: 1px solid #ccc;
+        .cell{
+          font-weight: normal;
         }
-        // 
     }
 }
 </style>
