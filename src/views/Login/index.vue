@@ -72,8 +72,8 @@ function login(){
     justify-content: center;
 
     .login-box{
-        width: 1428px;
-        height: 750px;
+        width: 90vw;
+        height: 47.25vw;
         background-color: rgba(255,255,255,0.9);
         border-radius: 10px;
         box-shadow: 0 0 15px #4780ff;
@@ -81,7 +81,7 @@ function login(){
         // margin-top: -100px;
         overflow: hidden;
         .left{
-            width:70%;
+            width:63vw;
             img{
                 width: 100%;
                 height: 100%;

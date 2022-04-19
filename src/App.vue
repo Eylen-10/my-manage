@@ -8,7 +8,7 @@
 </template>
 <script setup>
 const router = useRouter();
-console
+
 </script>
 <style lang="scss">
 #app {
