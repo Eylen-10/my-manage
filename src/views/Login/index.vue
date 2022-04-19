@@ -73,7 +73,9 @@ function login(){
 
     .login-box{
         width: 90vw;
+        max-width: 1428.5px;
         height: 47.25vw;
+        max-height: 750px;
         background-color: rgba(255,255,255,0.9);
         border-radius: 10px;
         box-shadow: 0 0 15px #4780ff;
@@ -82,6 +84,7 @@ function login(){
         overflow: hidden;
         .left{
             width:63vw;
+            max-width: 1000px;
             img{
                 width: 100%;
                 height: 100%;
