@@ -28,9 +28,6 @@ const routes = [
         children:dynamicRoute
     },
 ]
-console.log(dynamicRoute)
-
-
 
 const router = createRouter({
     history: createWebHashHistory(),

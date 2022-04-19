@@ -21,17 +21,20 @@
         
     </div>
     <div class="tabs">
-        <el-tag
-        v-for="item in tabs.tabMap"
-        :key="item.path"
-        class="mr10 pointer"
-        :class="{'el-tag--dark': tabs.curTab.path == item.path}"
-        @click="changeTag(item)"
-        @close="close(item)"
-        closable
-        >
-        {{item.name}}
-        </el-tag>
+        <transition-group name="el-zoom-in-left">
+             <el-tag
+                v-for="item in tabs.tabMap"
+                :key="item.path"
+                class="mr10 pointer"
+                :class="{'el-tag--dark': tabs.curTab.path == item.path}"
+                @click="changeTag(item)"
+                @close="close(item)"
+                closable
+            >
+            {{item.name}}
+            </el-tag>
+        </transition-group>
+       
     </div>
 </template>
 
@@ -52,7 +55,8 @@ var editableTabs = []
 
 const router = useRouter();
 const logout = ()=>{
-    user.setUser('')
+    user.setUser('');
+    tabs.clearTab();
     router.push({
         path:'/login'
     })
@@ -119,13 +123,21 @@ function updateBreadcrumb(){
 .tabs{
     padding-left: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
     // border-bottom: 1px solid #f1f1f1;
+    .el-tag:hover{
+        opacity: 0.7;
+    }
     .el-tag{
+        box-shadow: rgba(141, 141, 141, 0.1) 0px 4px 4px;
+        height: 28px;
         border-radius: 0px;
-        // border: 0px;
+        padding-left:12px;
+        padding-right:12px;
         background: #e4e4fd;
         color: #4b42ac;
-        border-color: white;
+        // border: 0;
+        border-color: rgba(75, 66, 172,0.1);
         .el-icon{
             color:#4b42ac;
             background: #e4e4fd;

@@ -6,64 +6,15 @@
                 Name：<el-input v-model="conditionForm.name"></el-input>
             </el-col>
             <el-col :span="12" class="search-btn text-r">
-                 <el-button @click="resetDateFilter">reset date filter</el-button>
-                <el-button @click="clearFilter">reset all filters</el-button>
+                 <el-button >reset date filter</el-button>
+                <el-button >reset all filters</el-button>
             </el-col>
         </el-row>
         
   
     </div>
     <div class="main-content flex1 flex-c">
-        <el-table ref="tableRef" row-key="date" :data="tableData" height="100%" style="width: 100%" header-row-class-name="table-header"	>
-        <el-table-column
-        prop="date"
-        label="Date"
-        sortable
-        width="180"
-        column-key="date"
-        :filters="[
-            { text: '2016-05-01', value: '2016-05-01' },
-            { text: '2016-05-02', value: '2016-05-02' },
-            { text: '2016-05-03', value: '2016-05-03' },
-            { text: '2016-05-04', value: '2016-05-04' },
-        ]"
-        :filter-method="filterHandler"
-        />
-        <el-table-column prop="name" label="Name" width="180" />
-        <el-table-column prop="address" label="Address" :formatter="formatter" />
-
-        <el-table-column
-        prop="tag"
-        label="Tag"
-        width="100"
-        :filters="[
-            { text: 'Home', value: 'Home' },
-            { text: 'Office', value: 'Office' },
-        ]"
-        :filter-method="filterTag"
-        filter-placement="bottom-end"
-        >
-        <template #default="scope">
-            <el-tag
-            :type="scope.row.tag === 'Home' ? '' : 'success'"
-            disable-transitions
-            >{{ scope.row.tag }}</el-tag
-            >
-        </template>
-        </el-table-column>
-    </el-table>
-    <div class="p10">
-      <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage"
-        :page-sizes="[100, 200, 300, 400]"
-        :page-size="100"
-        layout="total, prev, pager, next, jumper"
-        :total="400">
-      </el-pagination>
-    </div>
-     
+      <mytable :headers="headers" :tableData="tableData" :pageInfo="pageInfo"></mytable>
     </div>
 </div>
   
@@ -73,44 +24,42 @@
 import { ref } from 'vue'
 import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
 import type { ElTable } from 'element-plus'
-
+import Mytable from 'comp/Mytable.vue'
 interface User {
   date: string
   name: string
   address: string
   tag: string
 }
-
+provide('getList',getList)
 const tableRef = ref<InstanceType<typeof ElTable>>()
 const conditionForm = reactive({
     name:''
 })
 const currentPage = ref(1)
-
-const resetDateFilter = () => {
-  tableRef.value!.clearFilter(['date'])
-}
-// TODO: improvement typing when refactor table
-const clearFilter = () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  tableRef.value!.clearFilter()
-}
-const formatter = (row: User, column: TableColumnCtx<User>) => {
-  return row.address
-}
-const filterTag = (value: string, row: User) => {
-  return row.tag === value
-}
-const filterHandler = (
-  value: string,
-  row: User,
-  column: TableColumnCtx<User>
-) => {
-  const property = column['property']
-  return row[property] === value
-}
-
+var pageInfo = reactive({
+  totalNum: 5163,
+  currentPage: 1,
+  pageSize: 20
+})
+const headers = [
+  {
+    prop: "date",
+    label: "日期"
+  },
+  {
+    prop: "name",
+    label: "姓名"
+  },
+  {
+    prop: "address",
+    label: "地址"
+  },
+  {
+    prop: "tag",
+    label: "标签"
+  },
+]
 const tableData: User[] = [
   {
     date: '2016-05-03',
@@ -137,149 +86,22 @@ const tableData: User[] = [
     tag: 'Office',
   },
   {
-    date: '2016-05-01',
+    date: '2016-05-02',
     name: 'Tom',
     address: 'No. 189, Grove St, Los Angeles',
     tag: 'Office',
   },
   {
-    date: '2016-05-01',
+    date: '2016-05-04',
     name: 'Tom',
     address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
+    tag: 'Home',
   },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
+  
 ]
-function handleCurrentChange(){
 
-}
-function handleSizeChange(){
-
+function getList(){
+  alert('getList')
 }
 
 </script>
@@ -290,7 +112,6 @@ function handleSizeChange(){
     flex-direction: column;
     background-color: #f7f8fa;
     margin-left: 10px;
-    margin-top: 5px;
     margin-bottom: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;    
     .condition{

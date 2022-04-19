@@ -30,6 +30,7 @@ if(!user.userName){
     width: 100%;
     height: calc(100vh - 10px);
     display: flex;
+    
     .main-container{
         display: flex;
         flex-direction: column;

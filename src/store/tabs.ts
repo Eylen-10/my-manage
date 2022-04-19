@@ -18,6 +18,13 @@ export const useTabsStore =  defineStore('tabs',{
               this.updateCurTab(val)
             }
         },
+        clearTab(){
+          this.tabMap = {};
+          this.curTab = {
+            name :'',
+            path: ''
+          };
+        },
         delTab(val: tab){
           let keys = Object.keys(this.tabMap);
           let index = keys.indexOf(val.path)

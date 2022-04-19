@@ -4,9 +4,9 @@
                 <div class="left">
                     <img :src="bg">
                 </div>
-                <div class="right flex1">
-                    <div class="login-content">
-                        <div class="header pt50 ">LOGIN</div>
+                <div class="right flex1 flex-col">
+                    <div class="login-content wp100">
+                        <div class="header">LOGIN</div>
                         <div class="form">
                             <el-row class="flex-row">
                                 <el-col :span="6">账号：</el-col>
@@ -91,8 +91,10 @@ function login(){
             }
         }
         .right{
-            padding: 40px;
-            padding-top: 150px;
+            margin-top: -2vw;
+            padding: 0 2vw;
+            // padding: 40px;
+            // padding-top: 2vw;
             background-color: #e6e8fc;
             .header{
                 text-align: center;
@@ -100,7 +102,7 @@ function login(){
                 font-weight: bold;
                 letter-spacing: 2px;
                 text-indent: 2px;
-                margin-bottom: 40px;
+                margin-bottom: 3vw;
 
             }
             .el-row{

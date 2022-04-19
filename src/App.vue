@@ -18,6 +18,7 @@ const router = useRouter();
   overflow: hidden;
   height:calc(100vh);
   width: calc(100%);
+  
 }
 .my-body{
   height:calc(100vh - 10px);
@@ -31,4 +32,5 @@ const router = useRouter();
 body{
   background: #e2e2e0;
 }
+
 </style>
