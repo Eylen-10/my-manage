@@ -1,7 +1,7 @@
 <template>
     <div class="container flex-row">
         <Sidebar></Sidebar>
-        <div class="main-container flex1 ">
+        <div class="main-container flex1">
             <Header></Header>
             <router-view #default="{ Component,route }">
                     <keep-alive>

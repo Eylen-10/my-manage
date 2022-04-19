@@ -61,9 +61,10 @@ function handleCurrentChange(val : Number){
   props.pageInfo.currentPage = val;
   getList()
 }
-
+defineExpose({
+  getParams
+})
 </script>
-
 <style lang="scss">
 
 </style>

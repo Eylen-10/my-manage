@@ -6,15 +6,14 @@
                 Name：<el-input v-model="conditionForm.name"></el-input>
             </el-col>
             <el-col :span="12" class="search-btn text-r">
-                 <el-button >reset date filter</el-button>
-                <el-button >reset all filters</el-button>
+                 <el-button type="primary" color="3b3ebb" class="fs10" >查 询</el-button>
             </el-col>
         </el-row>
         
   
     </div>
     <div class="main-content flex1 flex-c">
-      <mytable :headers="headers" :tableData="tableData" :pageInfo="pageInfo"></mytable>
+      <mytable :headers="headers" :tableData="tableData" :pageInfo="pageInfo" ref="mytableRef"></mytable>
     </div>
 </div>
   
@@ -33,6 +32,7 @@ interface User {
 }
 provide('getList',getList)
 const tableRef = ref<InstanceType<typeof ElTable>>()
+const mytableRef = ref()
 const conditionForm = reactive({
     name:''
 })
@@ -101,7 +101,8 @@ const tableData: User[] = [
 ]
 
 function getList(){
-  alert('getList')
+  let params = mytableRef.value.getParams();
+  console.log(params)
 }
 
 </script>

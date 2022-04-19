@@ -1,9 +1,5 @@
 @import './variables.scss';
-// @import './mixin.scss';
-// @import './transition.scss';
 @import './element-ui.scss';
-// @import './sidebar.scss';
-// @import './btn.scss';
 @import './color.scss';
 
 html {
@@ -69,296 +65,107 @@ content:””;
 }
 
 
-
-
 div:focus{
-    outline: none;
-   }
-  
-  .fr {
-    float: right;
-  }
-  
-  .fl {
-    float: left;
-  }
-  .p10{
-    padding: 10px;
-  }
-  .pl20{
-    padding-left: 20px !important;
-  }
-  .pl15{
-    padding-left: 15px !important;
-  }
-  .pl10{
-    padding-left: 10px !important;
-  }
-  .pt100{
-    padding-top: 100px !important;
-  }
-  .pl12{
-    padding-left: 12px !important;
-  }
-  .pr-5 {
-    padding-right: 5px;
-  }
-  
-  .pl-5 {
-    padding-left: 5px;
-  }
-  .pt-5 {
-    padding: 5px;
-  }
-  .ml10{
-    margin-left: 10px;
-  }
-  .ml20{
-    margin-left: 20px !important;
-  }
-  .ml30{
-    margin-left: 30px !important;
-  }
-  .ml40{
-    margin-left: 40px !important;
-  }
-  .ml50{
-    margin-left: 50px !important;
-  }
-  .ml150{
-    margin-left: 150px !important;
-  }
-  .ml100{
-    margin-left: 100px !important;
-  }
-  .ml130{
-    margin-left: 130px !important;
-  }
-  
-  .ml60{
-    margin-left: 60px !important;
-  }
-  .mr0{
-    margin-right: 0px !important;
-  }
-  .mr10{
-    margin-right: 10px !important;
-  }
-  .mr20{
-    margin-right: 20px !important;
-  }
-  .mr30{
-    margin-right: 30px !important;
-  }
-  .mr50{
-    margin-right: 50px !important;
-  }
-  .mr100{
-    margin-right: 100px !important;
-  }
-  .mr150{
-    margin-right: 150px !important;
-  }
-  .mb10{
-    margin-bottom: 10px !important;
-  }
-  .mb20{
-    margin-bottom: 20px !important;
-  }
-  .mb30{
-    margin-bottom: 30px !important;
-  }
-  .mb40{
-    margin-bottom: 40px !important;
-  }
-  .mb50{
-    margin-bottom: 50px !important;
-  }
-  .mt5{
-    margin-top: 5px !important;
-  }
-  .mt10{
-    margin-top: 10px;
-  }
-  .mt20{
-    margin-top: 20px !important;
-  }
-  .mt30{
-    margin-top: 30px !important;
-  }
-  .mt40{
-    margin-top: 40px !important;
-  }
-  .mt50{
-    margin-top: 50px !important;
-  }
-  .mt100{
-    margin-top:100px;
-  }
-  .mt150{
-    margin-top: 150px !important;
-  }
-  .mt200{
-    margin-top: 200px !important;
-  }
-  .p5{
-    padding: 5px !important;
-  }
-  .pl0{
-    padding-left: 0px !important;
-  }
-  .pl5{
-    padding-left: 5px !important;
-  }
-  .pl15{
-    padding-left: 15px !important;
-  }
-  .pr0{
-    padding-right: 0 !important;
-  }
-  .pt10{
-    padding-top: 10px;
-  }
-  .pt20{
-    padding-top: 20px;
-  }
-  .pt30{
-    padding-top: 30px;
-  }
-  .pt40{
-    padding-top: 40px;
-  }
-  .pt50{
-    padding-top: 50px;
-  }
-  .pb10{
-    padding-bottom: 10px;
-  }
-  .mb5{
-    margin-bottom: 5px !important;
-  }
-  .b-r-4{
-    border-radius: 4px;
-  }
-  .wp100{
-    width: 100% !important;
-    .el-input {
-      width: 100%;
-    }
-  }
-  .hp100{
-    height: 100% !important;
-  }
+  outline: none;
+}
 
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+.wp100{
+  width: 100% !important;
+  .el-input {
+    width: 100%;
+  }
+}
+.hp100{
+  height: 100% !important;
+}
 .relative{
-    position: relative;
-  }
-  
-  .border-box{
-    box-sizing: border-box;
-  }
-  // 下划线
-  .text-line{
-    text-decoration:underline;
-  }
-  
-  .line{
-    background: #ccc;
-    height: 1px;
-  }
+  position: relative;
+}
+.border-box{
+  box-sizing: border-box;
+}
+// 下划线
+.text-line{
+  text-decoration:underline;
+}
+.line{
+  background: #ccc;
+  height: 1px;
+}
+.border{
+  border: 1px solid #e6e6e6;
+}
+.flex-c{
+  display: flex;
+  flex-direction: column;
+}
+.flex-j-e{
+  justify-content: flex-end;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-  .fs10{
-    font-size: 10px !important;
-  }
-  .fs12{
-    font-size: 12px !important;
-  }
-  .fs14{
-    font-size: 14px !important;
-  }
-  .fs13{
-    font-size: 13px !important;
-  }
-  .fs16 {
-    font-size: 16px !important;
-  }
-  .fs18{
-    font-size: 18px !important;
-  }
-  .border{
-    border: 1px solid #e6e6e6;
-  }
-  .flex-c{
-    display: flex;
-    flex-direction: column;
-  }
-  .flex-j-e{
-    justify-content: flex-end;
-  }
-  .flex-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 
-  .flex-col{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-
-  }
-  .flex{
-    display: flex;
-  }
-  .flex1 {
-    -webkit-box-flex: 1;	  /* OLD - iOS 6-, Safari 3.1-6 */
-    flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    overflow-y: auto;
-  }
-  .auto-y{
-    overflow-y: auto;
-  }
-  .text-c {
-    text-align: center;
-  }
-  .text-r {
-    text-align: right;
-  }
-  .text-l {
-    text-align: left;
-  }
-  .hl24{
-    line-height: 24px;
-  }
-  
-  .block {
+}
+.flex{
+  display: flex;
+}
+.flex1 {
+  -webkit-box-flex: 1;	  /* OLD - iOS 6-, Safari 3.1-6 */
+  flex: 1;				  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  overflow-y: auto;
+}
+.auto-y{
+  overflow-y: auto;
+}
+.text-c {
+  text-align: center;
+}
+.text-r {
+  text-align: right;
+}
+.text-l {
+  text-align: left;
+}
+.block {
+  display: block;
+}
+.none {
+  display: none;
+}
+.pointer {
+  cursor: pointer;
+}
+.inline-block {
+  display: inline-block;
+}
+.clearfix {
+  &:after {
+    visibility: hidden;
     display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
   }
-  .none {
-    display: none;
-  }
-  .pointer {
-    cursor: pointer;
-  }
-  
-  .inline-block {
-    display: inline-block;
-  }
-  
-  
-  .clearfix {
-    &:after {
-      visibility: hidden;
-      display: block;
-      font-size: 0;
-      content: " ";
-      clear: both;
-      height: 0;
-    }
-  }
+}
 /*fade-transform*/
 // .fade-transform-leave-active,
 .fade-transform-enter-active {
@@ -373,4 +180,23 @@ div:focus{
   // transform:translateX(100px) skewX(2deg);
   // transform: scale3d(0.9, 0.9, 0.9);
   opacity: 0.5;
+}
+
+$spacing-direction: (
+        t: top,
+        r: right,
+        b: bottom,
+        l: left,
+);
+
+@for $i from 0 through 150 {
+  .m#{$i} { margin: #{$i}px !important;}
+  .p#{$i} { padding: #{$i}px !important;}
+  @each $dirKey, $dir in $spacing-direction {
+    .m#{$dirKey}#{$i} { margin-#{$dir}: #{$i}px !important;}
+    .p#{$dirKey}#{$i} { padding-#{$dir}: #{$i}px !important;}
+  }
+}
+@for $i from 10 through 50 {
+  .fs#{$i} { font-size: #{$i}px !important;}
 }
