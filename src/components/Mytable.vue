@@ -6,7 +6,12 @@
         :key="item.prop"
         :prop="item.prop"
         :label="item.label"
+        @click="handleClick"
+        :render-header="renderheader"
         >
+        <template #default="scope" v-if="item.ellipsis">
+          <div v-html="scope.row[item.prop]"></div>
+        </template>
         </el-table-column>
     </el-table>
      
@@ -23,9 +28,9 @@
 </template>
 
 <script setup lang="ts">
+import { h } from "vue";
 
-
-const getList = inject('getList')
+const getList = inject('getList') as Function
 type oHeader = {
   label: string,
   name: string

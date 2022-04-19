@@ -45,19 +45,22 @@ var pageInfo = reactive({
 const headers = [
   {
     prop: "date",
-    label: "日期"
+    label: "日期",
   },
   {
     prop: "name",
-    label: "姓名"
+    label: "姓名",
   },
   {
     prop: "address",
-    label: "地址"
+    label: "地址",
+    filterList:[],
   },
   {
     prop: "tag",
-    label: "标签"
+    label: "标签",
+    tag: true,
+    ellipsis:true
   },
 ]
 var tableData: any = ref([]);
