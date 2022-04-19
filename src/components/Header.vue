@@ -56,10 +56,14 @@ var editableTabs = []
 const router = useRouter();
 const logout = ()=>{
     user.setUser('');
-    tabs.clearTab();
     router.push({
         path:'/login'
     })
+    tabs.updateCurTab({
+        name:'',
+        path:''
+    })
+    tabs.clearTab();
 }
 
 watchEffect(()=>{
