@@ -38,9 +38,10 @@ const tabs = useTabsStore()
         margin:0 10px 0 10px;
         overflow: hidden;
         .el-menu-item{
-          border-radius: 15px;
+          border-radius: 20px;
           min-width: 120px;
           margin:0 10px;
+          height: 40px;
         }
         .el-menu-item.is-active{
           background: white;

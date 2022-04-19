@@ -6,14 +6,14 @@
                 姓名：<el-input v-model="conditionForm.name" @input="getList"></el-input>
             </el-col>
             <el-col :span="12" class="search-btn text-r">
-                 <el-button type="primary" color="3b3ebb" class="fs10" @click="getList">查 询</el-button>
+                 <el-button type="primary" color="3b3ebb" class="fs10" @click="getList" >查 询</el-button>
             </el-col>
         </el-row>
         
   
     </div>
     <div class="main-content flex1 flex-c">
-      <mytable :headers="headers" :tableData="tableData" :pageInfo="pageInfo" :loading="loading" ref="mytableRef"></mytable>
+      <mytable :headers="headers" :tableData="tableData" :pageInfo="pageInfo" ref="mytableRef" :loading="loading"></mytable>
     </div>
 </div>
   
@@ -24,7 +24,6 @@ import { ref } from 'vue'
 import type { ElTable } from 'element-plus'
 import Mytable from 'comp/Mytable.vue'
 import { GET_REPORT_V2 } from '../../api/report'
-import { tr } from 'element-plus/lib/locale'
 interface User {
   date: string
   name: string
@@ -33,7 +32,7 @@ interface User {
 }
 provide('getList',getList)
 const mytableRef = ref()
-var loading = ref(false);
+var loading = ref(false)
 const conditionForm = reactive({
     name:''
 })
@@ -46,19 +45,22 @@ var pageInfo = reactive({
 const headers = [
   {
     prop: "date",
-    label: "日期"
+    label: "日期",
   },
   {
     prop: "name",
-    label: "姓名"
+    label: "姓名",
   },
   {
     prop: "address",
-    label: "地址"
+    label: "地址",
+    filterList:[],
   },
   {
     prop: "tag",
-    label: "标签"
+    label: "标签",
+    tag: true,
+    ellipsis:true
   },
 ]
 var tableData: any = ref([]);
@@ -69,6 +71,7 @@ function getList(){
     ...params,
     ...conditionForm
   }
+  console.log(params)
   loading.value = true;
   GET_REPORT_V2(params).then(res=>{
     loading.value = false;

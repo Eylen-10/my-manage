@@ -6,8 +6,6 @@
         :key="item.prop"
         :prop="item.prop"
         :label="item.label"
-        @click="handleClick"
-        :render-header="renderheader"
         >
         <template #default="scope" v-if="item.ellipsis">
           <div v-html="scope.row[item.prop]"></div>
