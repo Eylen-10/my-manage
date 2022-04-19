@@ -18,8 +18,6 @@
 </template>
 
 <script setup>
-import Sidebaritem from './Sidebaritem.vue'
-import dynamicRoute from 'router/dynamicRoute'
 import { useTabsStore } from '../store'
 const tabs = useTabsStore()
 </script>
@@ -32,14 +30,13 @@ const tabs = useTabsStore()
     border-right: 1px solid #333;
     border-radius: 22px;
     overflow: hidden;
-    // padding-top: 10px;
     .el-menu{
         border:0px;
         margin:0 10px 0 10px;
         overflow: hidden;
         .el-menu-item{
           border-radius: 15px;
-          min-width: 100px;
+          min-width: 120px;
           margin:0 10px;
         }
         .el-menu-item.is-active{
@@ -52,12 +49,6 @@ const tabs = useTabsStore()
           letter-spacing: 1px;
 
         }
-    }
-    .is-active {
-      @at-root {
-        ul {
-        }
-      }
     }
 }
 </style>

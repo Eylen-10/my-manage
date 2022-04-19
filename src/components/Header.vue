@@ -124,7 +124,6 @@ function updateBreadcrumb(){
     padding-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    // border-bottom: 1px solid #f1f1f1;
     .el-tag:hover{
         opacity: 0.7;
     }

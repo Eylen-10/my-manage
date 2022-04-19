@@ -21,7 +21,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
 import type { ElTable } from 'element-plus'
 import Mytable from 'comp/Mytable.vue'
 interface User {
@@ -31,7 +30,6 @@ interface User {
   tag: string
 }
 provide('getList',getList)
-const tableRef = ref<InstanceType<typeof ElTable>>()
 const mytableRef = ref()
 const conditionForm = reactive({
     name:''
@@ -127,25 +125,6 @@ function getList(){
         background: white;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;    
     }
-    .table-header{
-        th{
-            color:black;
-            .el-icon{
-                color:black
-            }
-            .ascending{
-                border-bottom-color: black;
-            }
-            .descending{
-                border-top-color: black;
-            }
-
-        }
-    }
-    .el-table__body-wrapper{
-        .cell{
-          font-weight: normal;
-        }
-    }
+    
 }
 </style>

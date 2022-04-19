@@ -2,8 +2,6 @@
   <div class="main-pane-html flex1">
     <linechart class="chart" id="chart1" idName="chart1"></linechart>
     <linechart2 class="chart" id="chart2" idName="chart2"></linechart2>
-    <!-- <linechart class="chart" id="chart3" idName="chart3"></linechart>
-    <linechart class="chart" id="chart4" idName="chart4"></linechart> -->
   </div>
 </template>
 

@@ -66,5 +66,24 @@ defineExpose({
 })
 </script>
 <style lang="scss">
+.table-header{
+    th{
+        color:black;
+        .el-icon{
+            color:black
+        }
+        .ascending{
+            border-bottom-color: black;
+        }
+        .descending{
+            border-top-color: black;
+        }
 
+    }
+}
+.el-table__body-wrapper{
+    .cell{
+      font-weight: normal;
+    }
+}
 </style>
