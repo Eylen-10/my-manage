@@ -72,8 +72,8 @@ function login(){
     justify-content: center;
 
     .login-box{
-        width: 1300px;
-        height: 800px;
+        width: 1428px;
+        height: 750px;
         background-color: rgba(255,255,255,0.9);
         border-radius: 10px;
         box-shadow: 0 0 15px #4780ff;

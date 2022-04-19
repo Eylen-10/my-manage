@@ -27,7 +27,7 @@ if(!user.userName){
 
 <style lang="scss">
 .container{
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - 10px);
     display: flex;
     .main-container{

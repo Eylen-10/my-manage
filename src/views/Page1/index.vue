@@ -285,11 +285,12 @@ function handleSizeChange(){
 </script>
 <style lang="scss">
 .page-html{
-    width: calc(100% - 35px);
+    width: calc(100% - 25px);
     display: flex;
     flex-direction: column;
     background-color: #f7f8fa;
     margin-left: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;    
     .condition{
