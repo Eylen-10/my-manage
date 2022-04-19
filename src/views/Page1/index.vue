@@ -3,7 +3,7 @@
     <div class="condition">
         <el-row>
             <el-col :span="12" class="search-form">
-                Name：<el-input v-model="conditionForm.name"></el-input>
+                姓名：<el-input v-model="conditionForm.name"></el-input>
             </el-col>
             <el-col :span="12" class="search-btn text-r">
                  <el-button type="primary" color="3b3ebb" class="fs10" >查 询</el-button>
