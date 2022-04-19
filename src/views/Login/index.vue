@@ -63,10 +63,6 @@ function login(){
     height: 100%;
     overflow: hidden;
     background-color: #3b3ebb;
-    // background: url('assets/bg.png') no-repeat;  
-    // background-position-x: 100%;
-    // background-size:100% auto;
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,11 +72,9 @@ function login(){
         max-width: 1428.5px;
         height: 47.25vw;
         max-height: 750px;
-        background-color: rgba(255,255,255,0.9);
         border-radius: 10px;
-        box-shadow: 0 0 15px #4780ff;
         display: flex;
-        // margin-top: -100px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;   
         overflow: hidden;
         .left{
             width:63vw;
@@ -91,11 +85,9 @@ function login(){
             }
         }
         .right{
-            margin-top: -2vw;
+            padding-top: -2vw;
             padding: 0 2vw;
-            // padding: 40px;
-            // padding-top: 2vw;
-            background-color: #e6e8fc;
+            background-color: #f6f6fc;
             .header{
                 text-align: center;
                 font-size: 24px;
@@ -103,7 +95,6 @@ function login(){
                 letter-spacing: 2px;
                 text-indent: 2px;
                 margin-bottom: 3vw;
-
             }
             .el-row{
                 margin-bottom: 20px;

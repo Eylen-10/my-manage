@@ -35,11 +35,29 @@ const tabs = useTabsStore()
     // padding-top: 10px;
     .el-menu{
         border:0px;
+        margin:0 10px 0 10px;
+        overflow: hidden;
+        .el-menu-item{
+          border-radius: 15px;
+          min-width: 100px;
+          margin:0 10px;
+        }
+        .el-menu-item.is-active{
+          background: white;
+          color: #4b42ac;
+          font-weight: bold;
+        }
         .el-sub-menu__title,.el-menu-item{
           font-size: 13px;
           letter-spacing: 1px;
 
         }
+    }
+    .is-active {
+      @at-root {
+        ul {
+        }
+      }
     }
 }
 </style>
