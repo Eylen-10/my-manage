@@ -2,9 +2,9 @@
     <div class="sidebar">
       <el-menu
         active-text-color="#ffd04b"
-        background-color="#083858"
+        background-color="#151718"
         :default-active="tabs.curTab.path"
-        class="el-menu-vertical-demo"
+        class="el-menu-vertical-demo mt10"
         text-color="#fff"   
         router
       >
@@ -27,9 +27,12 @@ const tabs = useTabsStore()
 <style lang="scss">
 .sidebar{
     width: 200px;
-    min-height: 100%;   
-    background-color: #083858;
+    min-height: calc(100vh - 10px) ;   
+    background-color: #151718;
     border-right: 1px solid #333;
+    border-radius: 22px;
+    overflow: hidden;
+    // padding-top: 10px;
     .el-menu{
         border:0px;
         .el-sub-menu__title,.el-menu-item{

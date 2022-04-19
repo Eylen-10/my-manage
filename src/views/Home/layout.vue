@@ -28,13 +28,13 @@ if(!user.userName){
 <style lang="scss">
 .container{
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 10px);
     display: flex;
     .main-container{
         display: flex;
         flex-direction: column;
         height: 100%;
-        background-color: #f7f8fa;
+        background-color: #fff;
         .content{
             background-color: #fff;
             display: flex;

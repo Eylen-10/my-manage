@@ -123,27 +123,28 @@ function updateBreadcrumb(){
     .el-tag{
         border-radius: 0px;
         // border: 0px;
-        // background: #083858;
-        color: #0e6198;
+        background: #e4e4fd;
+        color: #4b42ac;
         border-color: white;
         .el-icon{
-            color:#0e6198;
+            color:#4b42ac;
+            background: #e4e4fd;
         }
         .el-icon:hover{
-            background-color: #0e6198;
+            background-color: #4b42ac;
             color: white;
         }
     }
     .el-tag--dark {
-        background: #0e6198;
-        color: white;
-        border-color: white;
+        background: #4b42ac;
+        color: #e4e4fd;
+        border-color: #e4e4fd;
         .el-icon{
-            color:white;
+            color:#4b42ac;
         }
         .el-icon:hover{
-            background-color: white;
-            color: #0e6198;
+            background-color: #e4e4fd;
+            color: #4b42ac;
         }
     }
     

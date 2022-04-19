@@ -12,19 +12,19 @@ const dynamicRoute = [
         ]
     },
     {
-        name:'route2',
+        name:'报表系统',
         path:'route2',
-        icon:'CameraFilled',
+        icon:'DataAnalysis',
         children:[
             {
-                name:'route2-1',
+                name:'我的报表1',
                 path: 'route2-1',
                 component: () => import("../views/Page1/index.vue")
             },
             {
-                name:'route2-2',
+                name:'我的报表2',
                 path: 'route2-2',
-                component: () => import("../views/Page1/index.vue")
+                component: () => import("../views/Page2/index.vue")
             },
         ]
     },

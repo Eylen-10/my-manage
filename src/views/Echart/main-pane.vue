@@ -1,14 +1,15 @@
 <template>
   <div class="main-pane-html flex1">
     <linechart class="chart" id="chart1" idName="chart1"></linechart>
-    <linechart class="chart" id="chart2" idName="chart2"></linechart>
-    <linechart class="chart" id="chart3" idName="chart3"></linechart>
-    <linechart class="chart" id="chart4" idName="chart4"></linechart>
+    <linechart2 class="chart" id="chart2" idName="chart2"></linechart2>
+    <!-- <linechart class="chart" id="chart3" idName="chart3"></linechart>
+    <linechart class="chart" id="chart4" idName="chart4"></linechart> -->
   </div>
 </template>
 
 <script setup>
 import linechart from './linechart.vue'
+import linechart2 from './linechart2.vue'
 </script>
 
 <style lang="scss">
@@ -22,7 +23,8 @@ import linechart from './linechart.vue'
     min-width: 400px;
     padding:20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    margin: 10px; 
+    margin:10px;
+    margin-top: 30px;
   }
 }
 </style>

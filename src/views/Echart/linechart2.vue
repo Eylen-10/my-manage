@@ -14,7 +14,7 @@ function initChart() {
       // 把配置和数据放这里
       chart.setOption({
         title: {
-          text: 'how do you do',
+          text: 'where am I',
           left: 'center'
         },
         xAxis: {
@@ -45,15 +45,15 @@ function initChart() {
             data: [
               820,
               932,
+              1290,
+              102,
               901,
               934,
-              1290,
+              230,
+              4321,
               1330,
               1320,
               801,
-              102,
-              230,
-              4321,
               4129
             ],
             type: "line",
