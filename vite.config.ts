@@ -4,7 +4,12 @@ import path from 'path'
 import AutoImport from "unplugin-auto-import/vite"
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default ({ mode }) => defineConfig({
+  define:{
+    'process.env' : {
+      'VUE_APP_MODE' : mode
+    }
+  },
   base:'/my-manage/dist/',
   plugins: [
     vue(),
@@ -21,6 +26,8 @@ export default defineConfig({
       router: path.resolve('./src/router'),
       store: path.resolve('./src/store'),
       views: path.resolve('./src/views'),
+      utils: path.resolve('./src/utils'),
+      
     }
   },
   server:{
@@ -29,3 +36,4 @@ export default defineConfig({
   },
   
 })
+

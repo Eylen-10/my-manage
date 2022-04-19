@@ -41,6 +41,7 @@
 <script setup>
 import avatar from 'assets/avatar.png'
 import { useTabsStore, useUserStore } from '../store'
+import { LOGOUT } from '../api/user'
 const user = useUserStore()
 const tabs = useTabsStore()
 var breadcrumbList = reactive([])
@@ -55,19 +56,24 @@ var editableTabs = []
 
 const router = useRouter();
 const logout = ()=>{
-    user.setUser('');
-    router.push({
-        path:'/login'
-    })
-    tabs.updateCurTab({
-        name:'',
-        path:''
-    })
-    tabs.clearTab();
+    let param = {
+        account : user.userName
+    }
+    LOGOUT(param).then(res=>{
+        user.setUser('');
+        router.push({
+            path:'/login'
+        })
+        tabs.updateCurTab({
+            name:'',
+            path:''
+        })
+        tabs.clearTab();
+    }).catch(()=>{})
+    
 }
 
 watchEffect(()=>{
-    console.log('watch')
     updateBreadcrumb(router.currentRoute)
     let curRoute = {
         path:router.currentRoute.value.fullPath,

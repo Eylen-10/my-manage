@@ -23,7 +23,7 @@ const routes = [
     },
     {
         path: "/",
-        name: "home",
+        name: "首页",
         component:() => import("../views//Home/layout.vue"),
         children:dynamicRoute
     },

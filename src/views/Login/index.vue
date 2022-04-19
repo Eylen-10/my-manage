@@ -35,24 +35,29 @@
 <script setup lang="ts">
 import bg from 'assets/bg.png'
 import  { useUserStore }  from '../../store'
-
+import { LOGIN } from '../../api/user'
+import { Md5 } from 'ts-md5/dist/md5'
 const instance = getCurrentInstance() as any;
 const $message = inject('$message') as any;
 const router = useRouter()
 const user = useUserStore()
-
 const oLogin = reactive({
     account:'TEST',
     password:'TEST',
 })
 
 function login(){
-    user.setUser(oLogin.account)
-    $message({
-        message:'登录成功',
-        type:'success'
+    let param = {
+        account: oLogin.account,
+        password: Md5.hashStr(oLogin.password),
+    }
+    LOGIN(param).then(res=>{
+        console.log(res.data)
+        user.setUser(res.data.account)
+        router.push('/e1')
+    }).catch(e=>{
     })
-    router.push('/')
+    
 }
 
 </script>

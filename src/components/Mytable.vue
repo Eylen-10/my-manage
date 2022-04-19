@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container flex1">
+  <div class="table-container flex1" v-loading="loading">
     <el-table ref="tableRef" row-key="date" :data="props.tableData" height="100%" style="width: 100%" header-row-class-name="table-header"	>
         <el-table-column 
         v-for="item in props.headers"
@@ -25,8 +25,7 @@
 <script setup lang="ts">
 
 
-const getList = inject('getList') as Function
-
+const getList = inject('getList')
 type oHeader = {
   label: string,
   name: string
@@ -40,18 +39,16 @@ type oPage = {
 interface Props {
   headers: Array<oHeader>,
   tableData: [],
-  pageInfo: oPage
+  pageInfo: oPage,
+  loading: boolean,
 }
 
 const props = defineProps<Props>()
 
-function getParams(type: number){
+function getParams(){
   let params =  {
-    start: (props.pageInfo.currentPage as number - 1 )* (props.pageInfo.pageSize as number) -1 ,
+    start: (props.pageInfo.currentPage as number - 1 )* (props.pageInfo.pageSize as number) ,
     pageSize: props.pageInfo.pageSize,
-  }
-  if(type == 0){
-    params.start = params.start as number-1;
   }
   // console.log('getParam',type,params)
   return params;

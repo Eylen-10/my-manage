@@ -3,17 +3,17 @@
     <div class="condition">
         <el-row>
             <el-col :span="12" class="search-form">
-                姓名：<el-input v-model="conditionForm.name"></el-input>
+                姓名：<el-input v-model="conditionForm.name" @input="getList"></el-input>
             </el-col>
             <el-col :span="12" class="search-btn text-r">
-                 <el-button type="primary" color="3b3ebb" class="fs10" >查 询</el-button>
+                 <el-button type="primary" color="3b3ebb" class="fs10" @click="getList" >查 询</el-button>
             </el-col>
         </el-row>
         
   
     </div>
     <div class="main-content flex1 flex-c">
-      <mytable :headers="headers" :tableData="tableData" :pageInfo="pageInfo" ref="mytableRef"></mytable>
+      <mytable :headers="headers" :tableData="tableData" :pageInfo="pageInfo" ref="mytableRef" :loading="loading"></mytable>
     </div>
 </div>
   
@@ -23,6 +23,7 @@
 import { ref } from 'vue'
 import type { ElTable } from 'element-plus'
 import Mytable from 'comp/Mytable.vue'
+import { GET_REPORT_V1 } from '../../api/report'
 interface User {
   date: string
   name: string
@@ -31,6 +32,7 @@ interface User {
 }
 provide('getList',getList)
 const mytableRef = ref()
+var loading = ref(false)
 const conditionForm = reactive({
     name:''
 })
@@ -58,51 +60,26 @@ const headers = [
     label: "标签"
   },
 ]
-const tableData: User[] = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Home',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Home',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Office',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-    tag: 'Home',
-  },
-  
-]
+var tableData: any = ref([]);
 
 function getList(){
   let params = mytableRef.value.getParams();
+  params = {
+    ...params,
+    ...conditionForm
+  }
   console.log(params)
+  loading.value = true;
+  GET_REPORT_V1(params).then(res=>{
+    loading.value = false;
+    tableData.value = res.data
+  }).catch(()=>{
+    loading.value = false;
+  })
 }
-
+onMounted(()=>{
+  getList()
+})
 </script>
 <style lang="scss">
 .page-html{

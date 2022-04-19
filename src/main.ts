@@ -23,5 +23,10 @@ app.provide('$echarts',Echart)
 import createGuard from './permission'
 createGuard()
 
+import './mock'
+// if(import.meta.env.MODE == 'development'){
+
+// }
+
 app.mount('#app')
 
