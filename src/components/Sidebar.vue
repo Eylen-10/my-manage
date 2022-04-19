@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar">
+    <div class="sidebar">{{tabs.curTab.path}}
       <el-menu
         active-text-color="#ffd04b"
         background-color="#151718"
@@ -8,7 +8,7 @@
         text-color="#fff"   
         router
       >
-      <div v-for="menu in dynamicRoute" :key="menu.name">
+      <div v-for="menu in dynamicRoute" :key="'/'+menu.path">
           <sidebaritem :menu="menu"></sidebaritem>
       </div>
        

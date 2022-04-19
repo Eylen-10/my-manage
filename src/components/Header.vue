@@ -63,6 +63,7 @@ const logout = ()=>{
 }
 
 watchEffect(()=>{
+    console.log('watch')
     updateBreadcrumb(router.currentRoute)
     let curRoute = {
         path:router.currentRoute.value.fullPath,
