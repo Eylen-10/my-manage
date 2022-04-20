@@ -9,11 +9,13 @@ import 'animate.css'
 import { ElMessage } from 'element-plus'
 import * as ElIcons from '@element-plus/icons-vue'
 import * as Echart from 'echarts'
+
 const app = createApp(App)
 // app.use(animate)
 app.use(pinia)
 app.provide('$message',ElMessage)
 app.use(router)
+app.use(ElementPlus)
 app.use(ElementPlus)
 for (const name in ElIcons){
 	app.component(name,(ElIcons as any)[name])

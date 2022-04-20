@@ -12,19 +12,24 @@ const dynamicRoute = [
         ]
     },
     {
-        name:'报表系统',
+        name:'组件系统',
         path:'route2',
         icon:'DataAnalysis',
         children:[
             {
-                name:'我的报表1',
+                name:'人员列表',
                 path: 'route2-1',
                 component: () => import("../views/Page1/index.vue")
             },
             {
-                name:'我的报表2',
+                name:'上传EXCEL',
                 path: 'route2-2',
                 component: () => import("../views/Page2/index.vue")
+            },
+            {
+                name:'PDF阅览',
+                path: 'route2-3',
+                component: () => import("../views/Page4/index.vue")
             },
         ]
     },

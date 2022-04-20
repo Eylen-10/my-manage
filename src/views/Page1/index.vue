@@ -6,7 +6,8 @@
                 姓名：<el-input v-model="conditionForm.name" @input="getList"></el-input>
             </el-col>
             <el-col :span="12" class="search-btn text-r">
-                 <el-button type="primary" color="3b3ebb" class="fs10" @click="getList" >查 询</el-button>
+                 <el-button type="primary" color="3b3ebb" class="fs10" @click="exportExcel"  :icon="Download">导 出</el-button>
+                 <el-button type="primary" color="3b3ebb" class="fs10" @click="getList" :icon="Search" >查 询</el-button>
             </el-col>
         </el-row>
         
@@ -24,6 +25,8 @@ import { ref } from 'vue'
 import type { ElTable } from 'element-plus'
 import Mytable from 'comp/Mytable.vue'
 import { GET_REPORT_V1 } from '../../api/report'
+import excel from '../../utils/useExcel'
+import { Download,Search } from '@element-plus/icons-vue'
 interface User {
   date: string
   name: string
@@ -36,11 +39,12 @@ var loading = ref(false)
 const conditionForm = reactive({
     name:''
 })
+const router = useRouter()
 const currentPage = ref(1)
 var pageInfo = reactive({
-  totalNum: 5163,
+  totalNum: 0,
   currentPage: 1,
-  pageSize: 20
+  pageSize: 18
 })
 const headers = [
   {
@@ -65,17 +69,32 @@ const headers = [
 ]
 var tableData: any = ref([]);
 
+function exportExcel(){
+  // excel.export_json_to_excel({
+  //     filename:'导出excel测试',
+  //     data:tableData.value,
+  //     header: Object.keys(tableData.value[0])
+  //   });
+
+  excel.export_mytable_to_excel({
+    filename: router.currentRoute.value.name as string,
+    data:tableData.value,
+    headers
+  });
+  return;
+}
 function getList(){
   let params = mytableRef.value.getParams();
   params = {
     ...params,
     ...conditionForm
   }
-  console.log(params)
+  tableData.value.length = 0
   loading.value = true;
-  GET_REPORT_V1(params).then(res=>{
+  GET_REPORT_V1(params).then((res:any)=>{
     loading.value = false;
     tableData.value = res.data
+    pageInfo.totalNum = res.totalNum;
   }).catch(()=>{
     loading.value = false;
   })

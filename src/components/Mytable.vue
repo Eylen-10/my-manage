@@ -59,7 +59,7 @@ function getParams(){
 
 function handleCurrentChange(val : Number){
   props.pageInfo.currentPage = val;
-  getList()
+  if(getList) getList()
 }
 defineExpose({
   getParams

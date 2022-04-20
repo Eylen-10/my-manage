@@ -13,13 +13,19 @@
     "axios": "^0.26.1",
     "echarts": "^5.3.2",
     "element-plus": "^2.1.9",
+    "file-saver": "^2.0.5",
     "mockjs": "^1.1.0",
+    "moment": "^2.29.3",
     "path": "^0.12.7",
+    "pdfjs-dist": "^2.13.216",
     "pinia": "^2.0.13",
     "ts-md5": "^1.2.11",
     "vue": "^3.2.25",
+    "vue-class-component": "^7.2.6",
+    "vue-pdf-embed": "^1.1.1",
     "vue-router": "^4.0.14",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/mockjs": "^1.0.6",

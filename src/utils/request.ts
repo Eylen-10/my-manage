@@ -21,7 +21,7 @@ http.interceptors.request.use((config) => {
 
 //数据响应拦截
 http.interceptors.response.use((res)=> {
-  const data = res.data;
+  const data = res.data as any;
   if(res.status == 200 && data.code === 0){
     return Promise.resolve(data);
   }else{
