@@ -28,5 +28,17 @@ const dynamicRoute = [
             },
         ]
     },
+    {
+        name:'算法',
+        path:'Algorithm',
+        icon:'Document',
+        children:[
+            {
+                name:'图遍历',
+                path: 'GraphSearch',
+                component: () => import("../views/Algorithm/GraphSearch.vue")
+            },
+        ]
+    },
 ]
 export default dynamicRoute;
