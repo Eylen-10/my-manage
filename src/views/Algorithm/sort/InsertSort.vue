@@ -19,22 +19,23 @@
     data () {
       return {
         values:[],
+        example:[5,2,1,4,9,6,7,3,8],
         curObj:{},
         currentIndex: 1 // 当前排序位置，从第二个元素开始
       };
     },
     watch: {},
     created() {
-        for(let i=0;i<10;i++){
+        for(let i=0;i<9;i++){
             this.values.push({
                 id: i,
-                val : Math.ceil(Math.random() * 10)
+                val : this.example[i]
             })
         }
         this.sort();
     },
     methods: {
-        async sort(){
+        sort(){
             if(this.currentIndex < this.values.length) {
                 let currentVal = this.values[this.currentIndex];
                 this.curObj = this.values[this.currentIndex]
@@ -44,9 +45,8 @@
                     j--;
                 }
                 this.values[j+1] = currentVal;
-                await new Promise(resolve => setTimeout(resolve, 500)); // 等待1秒
                 this.currentIndex++;
-                setTimeout(this.sort, 500); // 1秒后再继续排序
+                setTimeout(this.sort, 600); // 1秒后再继续排序
             }else{
                 this.curObj = {}
             }
