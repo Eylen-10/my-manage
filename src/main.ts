@@ -11,7 +11,6 @@ import * as ElIcons from '@element-plus/icons-vue'
 import * as Echart from 'echarts'
 
 const app = createApp(App)
-// app.use(animate)
 app.use(pinia)
 app.provide('$message',ElMessage)
 app.use(router)

@@ -39,9 +39,15 @@ const dynamicRoute = [
         icon:'Document',
         children:[
             {
+                name:'插入排序',
+                path: 'InsertSort',
+                component: () => import("../views/Algorithm/sort/InsertSort.vue")
+            },
+        
+            {
                 name:'图遍历',
                 path: 'GraphSearch',
-                component: () => import("../views/Algorithm/GraphSearch.vue")
+                component: () => import("../views/Algorithm/graph/GraphSearch.vue")
             },
         ]
     },
